@@ -3,7 +3,7 @@ import {GlobalStyles} from "../../constants/styles";
 import {NavigationProp, useNavigation} from "@react-navigation/native";
 
 interface ExpenseItemProps {
-    id: string,
+    id?: string,
     description: string,
     amount: number,
     date: Date

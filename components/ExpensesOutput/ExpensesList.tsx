@@ -3,11 +3,11 @@ import {IExpenses} from "./ExpensesOutput";
 import ExpenseItem from "./ExpenseItem";
 
 interface ExpensesListProps {
-    expenses: IExpenses[],
+    expenses?: IExpenses[],
 }
 
 function renderExpenseItem(itemData: ListRenderItemInfo<IExpenses>) {
-    return <ExpenseItem {...itemData.item} />
+    return  <ExpenseItem {...itemData.item} />
 }
 
 function ExpensesList ({expenses}: ExpensesListProps) {
@@ -16,7 +16,7 @@ function ExpensesList ({expenses}: ExpensesListProps) {
             <FlatList
                 data={expenses}
                 renderItem={renderExpenseItem}
-                keyExtractor={(item) => item.id}
+                keyExtractor={(item) => item.id ? item.id : ''}
             />
         </View>
     )

@@ -4,18 +4,18 @@ import {GlobalStyles} from "../../constants/styles";
 
 interface ExpensesSummaryProps {
     periodName: string,
-    expenses: IExpenses []
+    expenses?: IExpenses []
 }
 
 function ExpensesSummary ({periodName, expenses}: ExpensesSummaryProps) {
-    const expensesSum = expenses.reduce((sum, expense ) => {
+    const expensesSum = expenses?.reduce((sum, expense ) => {
         return sum + expense.amount
     }, 0);
 
     return (
         <View style={styles.container}>
             <Text style={styles.period}>{periodName}</Text>
-            <Text style={styles.sum}>${expensesSum.toFixed(2)}</Text>
+            <Text style={styles.sum}>${expensesSum?.toFixed(2)}</Text>
         </View>
     )
 }
